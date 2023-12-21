@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
+    <link rel="icon" type="image/x-icon" href="images/Cannister.svg">
 
     <!-- Stylesheets -->
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,300italic' rel='stylesheet'
@@ -41,26 +42,15 @@
                     <img src="Contact/images/email.svg" alt="email" style="width: 450px;">
                 </div>
                 <div class="col-lg-6">
-                    <form class="p-4 p-md-5 border rounded-3 bg-light row">
-                        <div class="col mb-3">
-                            <label for="floatingInput">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="John" required>
-                        </div>
-                        <div class="mb-3 col">
-                            <label for="floatingInput">Email address</label>
-                            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="floatingInput">Phone number</label>
-                            <input type="text" class="form-control" id="phone" placeholder="0123 456 789" required>
-                        </div>
+                    <form action="mailto:mmjohnson@st.ug.edu.gh" method="post" enctype="text/plain"
+                        class="p-4 p-md-5 border rounded-3 bg-light row">
                         <div class="mb-3">
                             <label for="floatingInput">Company Name</label>
-                            <input type="text" class="form-control" id="company" placeholder="Optional">
+                            <input type="text" class="form-control" name="company" placeholder="Optional">
                         </div>
                         <div class="mb-3">
                             <label for="floatingInput">Custom message</label>
-                            <textarea name="floatingInput" id="customMessage" class="form-control" required></textarea>
+                            <textarea name="message" class="form-control" required></textarea>
                         </div>
 
                         <button class="w-100 btn btn-lg btn-warning" type="submit" id="sendMail">Send Now</button>
@@ -113,24 +103,27 @@
         </script>
 
     <script>
-        document.getElementById('order-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const company = document.getElementById('company').value;
-            const message = document.getElementById('customMessage').value;
+        function sendMail() {
+            // Get form inputs
+            const phone = document.querySelector('input[name="phone"]').value;
+            const company = document.querySelector('input[name="company"]').value;
+            const message = document.querySelector('textarea[name="message"]').value;
 
-            const subject = `Order Request ${name}, ${company}`;
-            const body = `Name: ${name}\nEmail: ${email}\nPhone Number: ${phone}\nCompany Name: ${company}\nCustom Message: ${customMessage}`;
+            // Construct mailto link with subject and body
+            const body = `Phone Number: ${phone}%0D%0A${message}`;
+            const mailtoLink = `mailto:mmjohnson@st.ug.edu.gh?su=Order%20Request&body=${body}`;
 
-            window.location.href = `mailto:mmjohnson@st.ug.edu.gh?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            // Redirect to mail client
+            window.location.href = mailtoLink;
+        }
+
+        const button = document.getElementById('sendMail');
+
+        button.addEventListener('click', () => {
+            sendMail();
         });
-
     </script>
-
     <!-- Script area -->
-
 </body>
 
 </html>

@@ -4,10 +4,104 @@
 }
 
 .headerItems {
+    padding: 16px 48px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.35);
     backdrop-filter: blur(1.75px);
 }
+
+.headerItems .icon {
+    display: none;
+}
+
+.headerGroup {
+    display: flex;
+    align-items: center;
+    gap: 264px;
+}
+
+.headerGroup .tabGroup {
+    display: flex;
+    align-items: flex-start;
+    gap: 80px;
+}
+
+.headerItems a {
+    color: #000;
+    font-family: Satoshi;
+    font-size: 19.2px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    display: flex;
+    padding: 8px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: inherit;
+}
+
+.headerItems a:hover {
+    color: white;
+    border-radius: 8px;
+    background-color: rgba(255, 193, 8, 0.4);
+}
+
+.headerItems a:active {
+    background-color: #FFC108;
+    color: black;
+}
+
+.currentTab {
+    background-color: #FFC108;
+    color: black;
+    border-radius: 8px;
+}
+
+/* Add a new class for hiding elements on small screens */
+.hide-on-small-screen {
+    display: none;
+}
+
+/* Add new CSS for responsive design */
+@media screen and (max-width: 600px) {
+    .headerGroup {
+        gap: 16px;
+        /* Reduce the gap for small screens */
+    }
+
+    .headerGroup .tabGroup {
+        flex-direction: column;
+        /* Display links vertically for small screens */
+        gap: 8px;
+    }
+
+    .headerItems a {
+        display: none;
+        /* Hide links by default for small screens */
+    }
+
+    .headerItems img{
+        display: none;
+    }
+
+    .headerItems a.icon {
+        display: flex;
+        /* Display the icon for small screens */
+    }
+
+    .headerItems.responsive a {
+        display: flex;
+        /* Display links when responsive class is added */
+    }
+}
+
+
 
 .header1 {
     color: #CFCFCF;
@@ -154,17 +248,6 @@
     letter-spacing: -0.32px;
 }
 
-.item {
-    border-radius: 8px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.item:hover {
-    color: white;
-    border-radius: 8px;
-    background-color: rgba(255, 193, 8, 0.4);
-}
-
 .filter-options {
     border-radius: 16px;
     opacity: 0.5;
@@ -189,9 +272,11 @@
 }
 
 .in-action-image-container {
-    overflow: hidden; /* Ensure the image is clipped within the container */
-    position: relative; /* Establish positioning context for the absolute positioned image */
-  }
+    overflow: hidden;
+    /* Ensure the image is clipped within the container */
+    position: relative;
+    /* Establish positioning context for the absolute positioned image */
+}
 
 .in-action-image {
     width: 25%;

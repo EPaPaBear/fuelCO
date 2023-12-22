@@ -19,13 +19,14 @@
         integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="Resources/CSS/Custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Stylesheets -->
 
 </head>
 
 <body class="bg-black">
     <!-- Top Navbar -->
-    <div class="container headerItems mt-3">
+    <!-- <div class="container headerItems mt-3">
         <header class="row justify-content-center py-3">
             <a href="index.html" class="col navbar-brand"><img src="images/LogoType.svg" alt="logo"></a>
             <ul class="col nav nav-pills">
@@ -39,6 +40,22 @@
             </ul>
         </header>
         <div class="container bg-white rounded-bottom-5 opacity-50"></div>
+    </div> -->
+    <!-- Top Navbar -->
+
+    <!-- Top Navbar -->
+    <div class="container headerItems mt-3" id="myTopnav">
+        <div class="headerGroup">
+            <img src="images/LogoType.svg" alt="logo" style="width: 100px; height: auto;">
+            <div class="tabGroup">
+                <a href="index.html" class="nav-link hide-on-small-screen">Home</a>
+                <a class="nav-link currentTab hide-on-small-screen" href="#">Dispensers</a>
+                <a class="nav-link hide-on-small-screen" href="Contact Us.html">Contact Us</a>
+            </div>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
     <!-- Top Navbar -->
 
@@ -188,6 +205,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        // Function to toggle the show-links class on the headerItems container
+        function toggleNavbar() {
+            var navbar = document.getElementById("myTopnav");
+            if (navbar.className.indexOf("responsive") === -1) {
+                navbar.className += " responsive";
+            } else {
+                navbar.className = navbar.className.replace(" responsive", "");
+            }
+        }
+    </script>
     <!-- Script area -->
 </body>
 

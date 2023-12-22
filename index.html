@@ -21,25 +21,49 @@
     integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="Resources/CSS/Custom.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body style="background: url('images/Background.webp'); background-size: cover;">
 
   <section>
     <!-- Top Navbar -->
-    <div class="container headerItems mt-3">
+    <!-- <div class="container headerItems mt-3">
       <header class="row justify-content-center py-3">
         <a href="#" class="col navbar-brand"><img src="images/LogoType.svg" alt="logo"></a>
         <ul class="col nav nav-pills">
-          <li class="nav-item btn-outline-warning"><a href="#" class="nav-link active" aria-current="page"
-              style="background-color:#ffc720; color: black;"><strong>Home</strong></a></li>
-          <li class="nav-item ms-5 me-5 item"><a href="Dispensers All.html" class="nav-link"
+          <li class="nav-item btn-outline-warning">
+            <a href="#" class="nav-link active" aria-current="page"
+              style="background-color:#ffc720; color: black;"><strong>Home</strong>
+            </a>
+          </li>
+          <li class="nav-item mx-5 item"><a href="Dispensers All.html" class="nav-link"
               style="color: black;">Dispensers</a></li>
           <li class="nav-item item"><a href="Contact Us.html" class="nav-link" style="color: black;">Contact Us</a></li>
         </ul>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
       </header>
+    </div> -->
+    <!-- Top Navbar -->
+
+    <!-- Top Navbar -->
+    <div class="container headerItems mt-3" id="myTopnav">
+      <div class="headerGroup">
+        <img src="images/LogoType.svg" alt="logo" style="width: 100px; height: auto;">
+        <div class="tabGroup">
+          <a href="#" class="nav-link currentTab hide-on-small-screen">Home</a>
+          <a class="nav-link hide-on-small-screen" href="Dispensers All.html">Dispensers</a>
+          <a class="nav-link hide-on-small-screen" href="Contact Us.html">Contact Us</a>
+        </div>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
+        <i class="fa fa-bars"></i>
+      </a>
     </div>
     <!-- Top Navbar -->
+
 
     <div class="px-4 py-5 my-sm-5 text-center text-white">
       <h1 class="mb-xl-5 header1">Smart, Durable</h1>
@@ -123,7 +147,8 @@
               </div>
               <div class="col-6">
                 <div class="">
-                  <img loading="lazy" src="images/Pic02.webp" class="img-fluid" alt="photo23" style="object-fit: cover;">
+                  <img loading="lazy" src="images/Pic02.webp" class="img-fluid" alt="photo23"
+                    style="object-fit: cover;">
                 </div>
               </div>
             </div>
@@ -269,11 +294,25 @@
       })
     })
   </script>
+
   <script>
     $(document).ready(function () {
       $(".owl-carousel").owlCarousel();
     });
   </script>
+
+  <script>
+    // Function to toggle the show-links class on the headerItems container
+    function toggleNavbar() {
+      var navbar = document.getElementById("myTopnav");
+      if (navbar.className.indexOf("responsive") === -1) {
+        navbar.className += " responsive";
+      } else {
+        navbar.className = navbar.className.replace(" responsive", "");
+      }
+    }
+  </script>
+
 </body>
 
 </html>
